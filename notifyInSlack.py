@@ -1,11 +1,10 @@
-def notifyInSlack(slack_token, slack_channel, environment_name, job_name, error_message):
+def notifyInSlack(slack_token: str, slack_channel: str, environment_name: str, job_name: str, error_message: str) -> None:
     """A function to post a message in a slack channel"""
     from slack_sdk import WebClient
     from slack_sdk.errors import SlackApiError
     
     # set up slack client
     client = WebClient(slack_token)
-    
     
     # create the message block
     message_block = [
