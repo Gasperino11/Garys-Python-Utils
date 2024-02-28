@@ -1,4 +1,4 @@
-def createDDLfromDataframe(df, tablename):
+def createDDLfromDataframe(df, tablename: str) -> str:
     """A function that creates a SQL DDL from a Dataframe"""
     ddl = f"CREATE OR REPLACE TABLE {tableName} (\n"
     
