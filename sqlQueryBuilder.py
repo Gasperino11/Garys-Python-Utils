@@ -1,4 +1,4 @@
-def sqlQueryBuilder(table, database=None, fields=["*"], conditionals=[]):
+def sqlQueryBuilder(table: str, database: str = None, fields: list = ["*"], conditionals: list = [], joins: dict = {}):
     #start query
     query = "SELECT "
     
@@ -14,6 +14,14 @@ def sqlQueryBuilder(table, database=None, fields=["*"], conditionals=[]):
     
     #add table to query
     query += f"{table}"
+
+    #add joins if applicable
+    if len(joins) > 0:
+        for join in joins.keys():
+            if database is not None:
+                join_str = f"{join['how'].upper()} JOIN {database}.{join['name']} ON {join['conditions']}"
+            else:
+                join_str = f"{join['how'].upper()} JOIN {join['name']} ON {join['conditions']}"
     
     #add conditionals
     if len(conditionals) > 0:
@@ -23,6 +31,7 @@ def sqlQueryBuilder(table, database=None, fields=["*"], conditionals=[]):
             query += query_conditions
         else:
             query += conditionals[0]
+
     
     #end query
     query += ";"
