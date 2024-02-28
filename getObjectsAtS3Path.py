@@ -1,4 +1,4 @@
-def getObjectsAtS3Path(str: s3_path):
+def getObjectsAtS3Path(s3_path: str) -> list:
     '''Takes in an S3 path (must be a string) and returns of a list of objects at that S3 path. Currently meant for use in a Databricks environment'''
     s3_objects = []
     
