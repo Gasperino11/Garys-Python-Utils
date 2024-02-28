@@ -1,4 +1,4 @@
-def computDataframeCardinality(df, id_fields, num_sample_rows=10):
+def computDataframeCardinality(df, id_fields: list, num_sample_rows: int = 10) -> None:
     """A function to report on the cardinality of ID fields in a Spark dataframe; made for use in Databricks"""
     from pyspark.sql.functions import col, desc
     
